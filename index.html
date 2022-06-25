@@ -98,7 +98,7 @@ function show() {
             document.querySelector('#countdown p').style.display = 'none';
             let i = Math.floor(Math.random()*tds.length);
             x = tds[i].textContent;
-            //tds[i].textContent = ' ';
+            tds[i].textContent = ' ';
             tds[i].classList.add('hide');
             document.getElementById("what").textContent="Что исчезло?";
             clearInterval(timer);
