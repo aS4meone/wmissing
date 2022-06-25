@@ -1,0 +1,102 @@
+<div class="page-content">
+        <style type="text/css">
+    td.hide{
+        color:hsla(0, 0%, 100%, 1);
+        background-color: hsla(0, 0%, 100%, 1);
+    }
+    td{
+        background-color: #ADC807;
+        color: hsla(0, 0%, 100%, 1);
+        height: 50px;
+        width: 50px;
+        font-size: 2em;
+        text-align: center;
+        border: 2px solid #fff;
+    }
+    .time_left{
+        font-size: 20px;
+}
+.restart {
+ color: #69edff
+  }
+  #zone{
+    display: none;
+  }
+    </style>
+<p>    <button id="button" onclick="show()">Начать игру!</button></p>
+<div id="zone">
+<div id="countdown">
+<p class="time_left">Осталось <span class="display">9</span> секунд</p>
+</div>
+<p><a class="restart " href="mymind.kz/disappear"><u>обновить</u></a></p>
+<p class="time_left" id="what">
+</p><table>
+<tbody>
+<tr>
+<td>]</td>
+<td>)</td>
+<td>%</td>
+<td>+</td>
+<td>/</td>
+<td>*</td>
+<td>)</td>
+<td>[</td>
+<td>?</td>
+<td>*</td>
+</tr>
+</tbody>
+</table>
+<p>    <input type="text" id="check" placeholder="Что исчезло?" value=""><br>
+    <button id="log_in" class="button_login" onclick="check()"><u>Проверить</u></button>
+    </p></div>
+<p><script>
+    var all = ['&','/', '@', '(', ')', '!', '?', '%', '[', ']', '*', '-', '+', '#'];
+    var j = 0;
+    var randtext;
+    var text = [];
+    while (j!=10){
+        randtext = all[Math.floor(Math.random()*all.length)];
+        text.push(randtext);
+        var ind = all.indexOf(randtext);
+        all.slice(ind, 1);
+        j++;
+    }
+    const tds = document.querySelectorAll('td');
+    tds.forEach(td => {
+    let i = Math.floor(Math.random()*text.length);
+    let rtext = text.splice(i, 1)[0];
+    td.textContent = rtext;
+    })
+    const display = document.querySelector('#countdown .display');
+    let timeLeft = parseInt(display.innerHTML);
+    let x;
+function check(){
+    val = document.querySelector("#check").value
+    if (val == x){
+        alert('Верно!')
+    }
+        else{
+            alert('Неверно! Попробуйте ещё раз!')
+        }
+    }
+function show() {
+    document.getElementById("button").style.display = 'none';
+    document.getElementById("zone").style.display = 'block';
+        let timer = setInterval(function(){
+        if (--timeLeft >= 0) {
+            display.innerHTML = timeLeft;
+        } else {
+            document.querySelector('#countdown p').style.display = 'none';
+            let i = Math.floor(Math.random()*tds.length);
+            x = tds[i].textContent;
+            //tds[i].textContent = ' ';
+            tds[i].classList.add('hide');
+            document.getElementById("what").textContent="Что исчезло?";
+            clearInterval(timer);
+            }
+          }, 1000)
+}
+</script></p>
+        <div class="post-tags">
+                    </div>
+            </div>
