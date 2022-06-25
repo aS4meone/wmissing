@@ -1,55 +1,62 @@
-<div class="page-content">
-        <style type="text/css">
-    td.hide{
-        color:hsla(0, 0%, 100%, 1);
-        background-color: hsla(0, 0%, 100%, 1);
-    }
-    td{
-        background-color: #ADC807;
-        color: hsla(0, 0%, 100%, 1);
-        height: 50px;
-        width: 50px;
-        font-size: 2em;
-        text-align: center;
-        border: 2px solid #fff;
-    }
-    .time_left{
-        font-size: 20px;
-}
-.restart {
- color: #69edff
-  }
-  #zone{
-    display: none;
-  }
-    </style>
-<p>    <button id="button" onclick="show()">Начать игру!</button></p>
+<style type="text/css">
+        td.hide{
+                color:hsla(0, 0%, 100%, 1);
+                background-color: hsla(0, 0%, 100%, 1);
+        }
+        td{
+                background-color: #ADC807;
+                color: hsla(0, 0%, 100%, 1);
+                height: 50px;
+                width: 50px;
+                font-size: 2em;
+                text-align: center;
+                border: 2px solid #fff;
+        }
+        .time_left{
+                font-size: 20px;
+        }
+        .restart {
+                color: #69edff
+        }
+        #zone{
+                display: none;
+        }
+</style>
+<p>
+        <button id="button" onclick="show()">Начать игру!</button>
+</p>
 <div id="zone">
-<div id="countdown">
-<p class="time_left">Осталось <span class="display">9</span> секунд</p>
+        
+        <div id="countdown">
+                <p class="time_left">Осталось <span class="display">9</span> секунд</p>
+        </div>
+        
+        <p><a class="restart " href="mymind.kz/disappear"><u>обновить</u></a></p>
+        <p class="time_left" id="what">
+        </p>
+        <table>
+                <tbody>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                </tbody>
+        </table>
+        <p>
+                <input type="text" id="check" placeholder="Что исчезло?" value=""><br>
+                <button id="log_in" class="button_login" onclick="check()"><u>Проверить</u></button>
+        </p>
+        
 </div>
-<p><a class="restart " href="mymind.kz/disappear"><u>обновить</u></a></p>
-<p class="time_left" id="what">
-</p><table>
-<tbody>
-<tr>
-<td>]</td>
-<td>)</td>
-<td>%</td>
-<td>+</td>
-<td>/</td>
-<td>*</td>
-<td>)</td>
-<td>[</td>
-<td>?</td>
-<td>*</td>
-</tr>
-</tbody>
-</table>
-<p>    <input type="text" id="check" placeholder="Что исчезло?" value=""><br>
-    <button id="log_in" class="button_login" onclick="check()"><u>Проверить</u></button>
-    </p></div>
-<p><script>
+<script>
     var all = ['&','/', '@', '(', ')', '!', '?', '%', '[', ']', '*', '-', '+', '#'];
     var j = 0;
     var randtext;
@@ -70,6 +77,7 @@
     const display = document.querySelector('#countdown .display');
     let timeLeft = parseInt(display.innerHTML);
     let x;
+        
 function check(){
     val = document.querySelector("#check").value
     if (val == x){
@@ -79,6 +87,7 @@ function check(){
             alert('Неверно! Попробуйте ещё раз!')
         }
     }
+        
 function show() {
     document.getElementById("button").style.display = 'none';
     document.getElementById("zone").style.display = 'block';
@@ -96,7 +105,4 @@ function show() {
             }
           }, 1000)
 }
-</script></p>
-        <div class="post-tags">
-                    </div>
-            </div>
+</script>
